@@ -35,11 +35,16 @@ self.addEventListener('install', event => {
 self.addEventListener('fetch', event => {
     // Si la petición es para una imagen de placeholder (que no existe como archivo local)
     // podemos dejar que vaya a la red o servir una imagen por defecto
-    if (event.request.url.includes('via.placeholder.com')) {
-        // En este ejemplo simple, si es una imagen de placeholder, la dejamos ir a la red
-        // En un caso real, la guardarías o servirías una imagen offline por defecto.
-        event.respondWith(fetch(event.request));
-        return; // Salir de la función para no procesarla con la caché
+    try {
+        const requestUrl = new URL(event.request.url);
+        if (requestUrl.host === 'via.placeholder.com') {
+            // En este ejemplo simple, si es una imagen de placeholder, la dejamos ir a la red
+            // En un caso real, la guardarías o servirías una imagen offline por defecto.
+            event.respondWith(fetch(event.request));
+            return; // Salir de la función para no procesarla con la caché
+        }
+    } catch (error) {
+        console.error('Obrero de Servicio: URL inválida en la petición:', event.request.url, error);
     }
 
     event.respondWith(
