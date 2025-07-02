@@ -42,7 +42,7 @@ dibujarJuguetes(juguetes);
 if ('serviceWorker' in navigator) {
     // Si sabe, le decimos que registre a nuestro Obrero de Servicio
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js')
+        navigator.serviceWorker.register('service-worker.js')
             .then(registration => {
                 console.log('Obrero de Servicio registrado con éxito:', registration.scope);
             })
