@@ -1,14 +1,16 @@
 // --- 1. Nombres para los Bolsillos Secretos del Cartero (Cachés) ---
 const CACHE_NAME = 'mis-juguetes-cache-v1'; // Un nombre para nuestro bolsillo secreto (cache)
+// Ruta base de tu repositorio en GitHub Pages
+const BASE_URL = '/mi-app-offline-juguetes-favoritos-pwa/'; 
 // Lista de archivos que el Obrero de Servicio debe guardar en su bolsillo la primera vez
 const urlsToCache = [
-    '/', // La página principal (index.html)
-    '/index.html',
-    '/style.css',
-    '/script.js',
-    '/manifest.json',
-    '/assets/bs_icon_192.png', // Tu icono pequeño
-    '/assets/bs_icon_512.png'  // Tu icono grande
+    BASE_URL, // La raíz de tu aplicación en GitHub Pages
+    `${BASE_URL}index.html`,
+    `${BASE_URL}style.css`,
+    `${BASE_URL}script.js`,
+    `${BASE_URL}manifest.json`,
+    `${BASE_URL}assets/bs_icon_192.png`,
+    `${BASE_URL}assets/bs_icon_512.png`,
 ];
 
 // --- 2. Cuando el Obrero de Servicio Se Instala por Primera Vez ---
