@@ -1,0 +1,23 @@
+{
+    "name": "Mis Juguetes Offline",
+    "short_name": "Juguetes",
+    "description": "Una lista de mis juguetes favoritos que funciona sin conexión.",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#4CAF50",
+    "icons": [
+        {
+            "src": "assets/bs_icon_192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "assets/bs_icon_512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}

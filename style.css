@@ -1,0 +1,212 @@
+/* Importar una fuente moderna y legible de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Definición de variables CSS para colores - ¡Esto hace que sea fácil cambiar los colores principales! */
+:root {
+    --color-background: #f0f0f0;         /* Fondo claro general */
+    --color-header: #4CAF50;             /* Verde vibrante para el encabezado */
+    --color-text-header: #FFFFFF;        /* Texto blanco para el encabezado */
+    --color-main-bg: #ffffff;           /* Fondo blanco para el contenido principal */
+    --color-text-dark: #333333;          /* Texto oscuro para el contenido */
+    --color-text-light-gray: #666;       /* Gris claro para descripciones */
+    --color-border-item: #eee;           /* Borde suave entre elementos de la lista */
+    --color-footer-bg: #333;             /* Fondo oscuro para el pie de página */
+    --color-text-footer: #FFFFFF;        /* Texto blanco para el pie de página */
+    --color-shadow-light: rgba(0,0,0,0.1); /* Sombra suave */
+    --color-shadow-medium: rgba(0,0,0,0.2); /* Sombra media */
+}
+
+/* ------------------------------------------- */
+/* Estilos Base (Mobile-First: para pantallas pequeñas por defecto) */
+/* ------------------------------------------- */
+
+/* Reseteo básico y configuración de la tipografía */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: var(--color-background);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Apila el header, main y footer verticalmente */
+    align-items: center; /* Centra horizontalmente el contenido */
+    min-height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
+    color: var(--color-text-dark);
+    box-sizing: border-box; /* Incluye padding y border en el tamaño total */
+    overflow-x: hidden; /* Evita scroll horizontal no deseado */
+}
+
+/* Encabezado */
+header {
+    background-color: var(--color-header);
+    color: var(--color-text-header);
+    padding: 20px;
+    width: 100%; /* Ocupa todo el ancho */
+    text-align: center;
+    box-shadow: 0 2px 5px var(--color-shadow-medium); /* Sombra sutil */
+}
+
+h1 {
+    margin: 0;
+    font-size: 2em; /* Tamaño de fuente para móviles */
+}
+
+/* Contenido principal */
+main {
+    background-color: var(--color-main-bg);
+    margin: 20px; /* Margen alrededor del contenido principal */
+    padding: 20px;
+    border-radius: 8px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 10px var(--color-shadow-light); /* Sombra para dar profundidad */
+    width: 90%; /* Ocupa el 90% del ancho disponible */
+    max-width: 600px; /* Ancho máximo para el contenido principal en pantallas grandes */
+    flex-grow: 1; /* Permite que el main ocupe el espacio disponible entre header y footer */
+}
+
+/* Estilo para cada item de juguete */
+.juguete-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--color-border-item); /* Separador entre juguetes */
+}
+
+.juguete-item:last-child {
+    border-bottom: none; /* No hay borde debajo del último juguete */
+}
+
+.juguete-item img {
+    width: 70px; /* Tamaño de imagen para móviles */
+    height: 70px;
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+    border-radius: 5px;
+    margin-right: 15px;
+    box-shadow: 0 2px 4px var(--color-shadow-light);
+    flex-shrink: 0; /* Evita que la imagen se encoja */
+}
+
+.juguete-info {
+    flex-grow: 1; /* Permite que la información del juguete ocupe el espacio restante */
+}
+
+.juguete-info h2 {
+    margin: 0 0 5px 0;
+    color: var(--color-text-dark);
+    font-size: 1.3em; /* Tamaño de título de juguete para móviles */
+}
+
+.juguete-info p {
+    margin: 0;
+    color: var(--color-text-light-gray);
+    font-size: 0.9em; /* Tamaño de descripción de juguete para móviles */
+}
+
+/* Estilo para el mensaje de cargando */
+main p {
+    text-align: center;
+    color: var(--color-text-light-gray);
+    font-style: italic;
+    font-size: 1em;
+}
+
+/* Pie de página */
+footer {
+    margin-top: auto; /* Empuja el footer al final de la página */
+    background-color: var(--color-footer-bg);
+    color: var(--color-text-footer);
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.85em;
+}
+
+/* ------------------------------------------- */
+/* Media Queries (Puntos de quiebre para adaptar el diseño) */
+/* ------------------------------------------- */
+
+/* Para pantallas de tablet y escritorio pequeñas (ej. ancho mayor a 600px) */
+@media (min-width: 600px) {
+    h1 {
+        font-size: 2.5em; /* Título más grande */
+    }
+
+    main {
+        margin: 30px; /* Más margen para el contenido principal */
+        padding: 30px;
+    }
+
+    .juguete-item img {
+        width: 80px; /* Imágenes de juguetes un poco más grandes */
+        height: 80px;
+    }
+
+    .juguete-info h2 {
+        font-size: 1.5em; /* Títulos de juguetes más grandes */
+    }
+
+    .juguete-info p {
+        font-size: 1em; /* Descripciones de juguetes más grandes */
+    }
+
+    main > p { /* Mensaje de cargando/sin juguetes */
+        font-size: 1.1em;
+    }
+
+    footer {
+        font-size: 0.9em;
+    }
+}
+
+/* Para pantallas de escritorio grandes (ej. ancho mayor a 960px) */
+@media (min-width: 960px) {
+    h1 {
+        font-size: 3em; /* Título aún más grande */
+    }
+    main {
+        padding: 40px;
+    }
+    .juguete-item img {
+        width: 90px; /* Imágenes de juguetes aún más grandes */
+        height: 90px;
+    }
+}
+
+/* Ajustes para dispositivos en orientación horizontal (Landscape) y pantallas pequeñas */
+@media (max-height: 500px) and (orientation: landscape) {
+    body {
+        padding: 10px; /* Menos padding general */
+    }
+    header {
+        margin-bottom: 10px;
+    }
+    h1 {
+        font-size: 1.8em; /* Título más pequeño para dejar espacio */
+    }
+    main {
+        margin: 10px;
+        padding: 15px;
+        width: 95%; /* Ocupa más ancho en modo horizontal */
+    }
+    .juguete-item {
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+    .juguete-item img {
+        width: 60px; /* Imágenes de juguetes más pequeñas */
+        height: 60px;
+        margin-right: 10px;
+    }
+    .juguete-info h2 {
+        font-size: 1.2em;
+    }
+    .juguete-info p {
+        font-size: 0.85em;
+    }
+    main > p {
+        font-size: 0.9em;
+    }
+    footer {
+        font-size: 0.75em;
+        padding: 10px;
+    }
+}
